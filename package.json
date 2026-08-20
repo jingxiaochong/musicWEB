@@ -1,0 +1,20 @@
+{
+  "name": "musicWEB",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Personal Netease Cloud Music web player",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite preview --host 127.0.0.1 --port 8080"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "8.2.2"
+  }
+}
