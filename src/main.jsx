@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 
-const api = (path) => `/api/${path}`
+const api = (path) => `https://musicapi.jingxiaochong.com.cn/api/${path}`
 
 function songName(song) {
   return song.name || '未命名歌曲'
@@ -82,7 +82,7 @@ function App() {
           <p className="eyebrow">PERSONAL MUSIC</p>
           <h1>NCM Web</h1>
         </div>
-        <a className="login" href="/api/qrlogin.html" target="_blank" rel="noreferrer">二维码登录</a>
+        <a className="login" href={api('/qrlogin.html')} target="_blank" rel="noreferrer">二维码登录</a>
       </header>
 
       <section className="searchbox">
