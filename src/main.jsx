@@ -61,7 +61,7 @@ function App() {
     setStatus(`正在准备：${songName(song)}`)
     setCurrent(song)
     try {
-      const data = await requestJson(`song_url_v1?id=${song.id}&level=standard&encodeType=mp3`)
+      const data = await requestJson(`song/url/v1?id=${song.id}&level=standard&encodeType=mp3`)
       const item = data?.data?.[0] || data?.body?.data?.[0]
       if (!item?.url) throw new Error('当前歌曲没有可用播放地址')
       setAudioUrl(item.url)
