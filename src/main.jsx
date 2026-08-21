@@ -28,7 +28,14 @@ function Player({ current, audioUrl, lyric }) {
           <span>{current ? artistName(current) : '选择一首歌曲'}</span>
         </div>
       </div>
-      <audio key={audioUrl} src={audioUrl || undefined} controls autoPlay={Boolean(audioUrl)} preload="none" />
+      <audio
+        key={audioUrl}
+        src={audioUrl || undefined}
+        controls
+        autoPlay={Boolean(audioUrl)}
+        preload="none"
+        crossOrigin="use-credentials"
+      />
       <pre className="lyric">{lyric}</pre>
     </section>
   )
@@ -64,7 +71,7 @@ function App() {
       const data = await requestJson(`song/url/v1?id=${song.id}&level=standard&encodeType=mp3`)
       const item = data?.data?.[0] || data?.body?.data?.[0]
       if (!item?.url) throw new Error('当前歌曲没有可用播放地址')
-      setAudioUrl(item.url)
+      setAudioUrl(api(`music/stream?id=${song.id}&level=standard`))
       setStatus('正在播放')
       setLyric('歌词加载中…')
       const lyricData = await requestJson(`lyric?id=${song.id}`)
